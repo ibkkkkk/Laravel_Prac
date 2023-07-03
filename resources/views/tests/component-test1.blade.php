@@ -1,5 +1,1 @@
-<x-tests.app>
-    <x-slot name="header">
-        header1
-    </x-slot>
-</x-tests.app>
+<x-tests.card title="title" content="content" :message="$message"/>
