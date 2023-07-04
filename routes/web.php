@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComponentTestController;
+use App\Http\Controllers\LifeCycleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/dashboard', function () {
 
 Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
 Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
+Route::get('/service-container-test', [LifeCycleController::class, 'showServiceContainerTest']);
+Route::get('/service-provider-test', [LifeCycleController::class, 'showServiceProviderTest']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
