@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\OwnersController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
@@ -25,6 +26,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin.welcome');
 });
+
+
+Route::resource('owners', OwnersController::class)
+                ->middleware('auth:admin');
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
