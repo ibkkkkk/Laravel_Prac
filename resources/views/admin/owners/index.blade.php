@@ -30,10 +30,25 @@
                                                 class="text-gray-600 hover:text-gray-800">{{ $owner->created_at->diffForHumans() }}</a>
                                         </li>
                                     </nav>
-
-                                    <button
-                                        onclick="location.href='{{ route('admin.owners.edit', ['owner' => $owner->id]) }}'"
-                                        class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md ml-4">編集</button>
+                                    <div class="flex justify-around">
+                                        <button
+                                            onclick="location.href='{{ route('admin.owners.edit', ['owner' => $owner->id]) }}'"
+                                            class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md ml-4">編集</button>
+                                        {{-- <form method="post" id="delete_{{ $owner->id }}"
+                                            action="{{ route('admin.owners.destroy', ['owner' => $owner->id]) }}">
+                                            @method('DELETE')
+                                            @csrf
+                                            <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)"
+                                                class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md ml-4">削除</button> --}}
+                                        <form id="delete_{{ $owner->id }}" method="post"
+                                            action="{{ route('admin.owners.destroy', ['owner' => $owner->id]) }}"
+                                            class="mt-3 ">
+                                            @csrf
+                                            @method('delete')
+                                            <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)"
+                                                class="bg-green-500 border-0 py-4 px-4 focus:outline-none hover:bg-red-500 rounded ml-4">削除</a>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -57,4 +72,14 @@
             </div>
         </div>
     </div>
+    <script>
+        function deletePost(e) {
+            'use strict';
+            if (confirm("本当に削除しますか？")) {
+                document.getElementById('delete_' + e.dataset.id).submit();
+            }
+        }
+    </script>
+
+
 </x-app-layout>

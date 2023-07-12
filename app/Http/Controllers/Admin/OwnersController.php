@@ -96,14 +96,12 @@ class OwnersController extends Controller
             ->with('message', '更新されました。');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        Owner::findOrFail($id)->delete(); //SoftDeletes
+        return redirect()
+            ->route('admin.owners.index')
+            ->with('message', '削除しました。');
     }
 }
