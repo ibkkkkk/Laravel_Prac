@@ -8,8 +8,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                @if (session('message'))
+                    <div class="bg-blue-300 w-1/2 mx-auto p-2 my-4">
+                        {{ session('message') }}
+                    </div>
+                @endif
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
                     <footer class="text-gray-600 body-font">
                         <button onclick="location.href='{{ route('admin.owners.create') }}'"
                             class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4">新規登録</button>

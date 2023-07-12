@@ -54,7 +54,7 @@ class OwnersController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:owners'],
-            'password' => ['required', 'string', 'confirmed', 'min:8']
+            'password' => ['required', 'string', 'confirmed', 'min:8'],
         ]);
 
         Owner::create([
@@ -63,7 +63,9 @@ class OwnersController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('admin.owners.index');
+        return redirect()
+            ->route('admin.owners.index')
+            ->with('message', 'success');
     }
 
     /**
