@@ -51,10 +51,14 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     @endforeach
-                    <button onclick="location.href='{{ route('admin.owners.create') }}'"
-                        class="mt-4 bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4">新規登録</button>
+                    <div class="flex justify-around">
+                        <button onclick="location.href='{{ route('admin.owners.create') }}'"
+                            class="mt-4 bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4 ">新規登録</button>
+                        {{ $owners->links() }}
+                    </div>
 
 
                     {{--    eloquent

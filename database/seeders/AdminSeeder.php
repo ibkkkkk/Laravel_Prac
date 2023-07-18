@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
     {
         DB::table('admins')->insert([
             'name' => 'test',
-            'email' => 'test@test.com',
+            'email' => 'test_admin@test.com',
             'password' => Hash::make("ibk12345"),
             'created_at' => '2021/07/10 11:11:11'
         ]);
