@@ -17,7 +17,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-gray-100">
+    <div class="bg-gray-100">
         @if (request()->is('admin*'))
             @include('layouts.admin-navigation')
         @elseif(request()->is('owner*'))

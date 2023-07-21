@@ -69,19 +69,16 @@ class OwnersController extends Controller
 
                 Shop::create([
                     'owner_id' => $owner->id,
-                    'name' => "店名を入力",
+                    'name' => '店名を入力してください',
                     'information' => '',
                     'filename' => '',
                     'is_selling' => true
-
                 ]);
-            }, 3);
+            }, 2);
         } catch (Throwable $e) {
             Log::error($e);
             throw $e;
-        };
-
-
+        }
 
         return redirect()
             ->route('admin.owners.index')
