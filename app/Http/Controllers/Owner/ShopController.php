@@ -60,7 +60,7 @@ class ShopController extends Controller
             'is_selling' => ['required'],
         ]);
 
-        Log::info('dddaaa');
+
         // $imageFile = $request->image;
         // if (!is_null($imageFile)) {
         //     Storage::putFile('public/shops', $imageFile);
@@ -71,7 +71,8 @@ class ShopController extends Controller
         $shop->information = $request->information;
         $shop->is_selling = $request->is_selling;
         $shop->save();
-        Log::info('dddaaaccc');
+
+
         return redirect()->route('owner.shops.index')->with([
             'message' => '更新しました。',
             'status' => 'info'
