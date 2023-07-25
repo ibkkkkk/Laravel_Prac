@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Owner\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Owner;
+use App\Models\Shop;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -40,6 +41,14 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        Shop::create([
+            'owner_id' => $user->id,
+            'name' => $request->name,
+            'information' => 'sample information',
+            'filename' => '',
+            'is_selling' => true
         ]);
 
         event(new Registered($user));

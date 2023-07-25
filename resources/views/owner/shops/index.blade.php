@@ -9,26 +9,27 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    @if (session('message'))
+                        <div class="bg-blue-300 w-1/2 mx-auto p-2 my-4 text-center">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                     @foreach ($shops as $shop)
-                        <div class="w-1/2">
+                        <div class="w-1/4">
                             <a class="border " href="{{ route('owner.shops.edit', ['shop' => $shop->id]) }}">
                                 <div class="border rounded-md p-4">
                                     <div class="flex">
                                         @if ($shop->is_selling)
                                             <span class="border p-2 rounded-md  bg-blue-400 text-black">販売中</span>
                                         @else
-                                            <span class="border p-2 rounded-md  bg-red-400 text-white">停止中</span>
+                                            <span
+                                                class="border p-2 rounded-md  bg-red-400 text-black font-bold: 600">停止中</span>
                                         @endif
                                         <div class="mt-2 ml-3">
                                             {{ $shop->name }}
                                         </div>
                                     </div>
-
-                                    @if (empty($shop->filename))
-                                        <img src="{{ asset('images/noimage.png') }}">
-                                    @else
-                                        <img src="{{ asset('storage/shops/' . $shop->filename) }}">
-                                    @endif
+                                    <x-thumbnail />
                                 </div>
                             </a>
                         </div>

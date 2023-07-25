@@ -6,13 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('shops', function (Blueprint $table) {
             $table->id();
             $table->foreignId('owner_id')->constrained();
-            $table->string('name');
+            $table->string('name')->nullable(true);
             $table->text('information');
             $table->string('filename');
             $table->boolean('is_selling');
