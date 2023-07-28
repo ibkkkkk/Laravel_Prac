@@ -8,6 +8,7 @@ use App\Models\Shop;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use App\Http\Requests\UploadImageRequest;
 
 class ShopController extends Controller
 {
@@ -49,22 +50,29 @@ class ShopController extends Controller
         return view('owner.shops.edit', compact('shop'));
     }
 
-    public function update(Request $request, $id)
+    public function update(UploadImageRequest $request, $id)
     {
-
-        Log::info('ddd');
 
         $request->validate([
             'name' => ['max:50'],
             'information' => ['required', 'string', 'max:1000'],
             'is_selling' => ['required'],
+            'image' => ['required']
         ]);
 
+        $imageFile = $request->file('image');
+        // $request->file('image')->storeAs('public/shops', $imageFile);
+        // Storage::putFile('public/shops/', $imageFile);
+        // Log::info("ddd");
 
-        // $imageFile = $request->image;
-        // if (!is_null($imageFile)) {
-        //     Storage::putFile('public/shops', $imageFile);
-        // }
+        if (!is_null('$imageFile')) {
+            $fileName = uniqid(rand() . '_');
+            $extension = $imageFile->extension();
+            $fileNameToStore = $fileName . '.' . $extension;
+        }
+
+        // Storage::putFileAs('public/' . $folderName . '/', $file, $fileNameToStore);
+
 
         $shop = Shop::findOrFail($id);
         $shop->name = $request->shop;
