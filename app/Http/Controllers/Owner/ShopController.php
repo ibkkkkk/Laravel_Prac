@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests\UploadImageRequest;
+use App\Services\ImageService;
 
 class ShopController extends Controller
 {
@@ -57,22 +58,13 @@ class ShopController extends Controller
             'name' => ['max:50'],
             'information' => ['required', 'string', 'max:1000'],
             'is_selling' => ['required'],
-            'image' => ['required']
+            // 'image' => ['required']
         ]);
 
         $imageFile = $request->file('image');
-        // $request->file('image')->storeAs('public/shops', $imageFile);
-        // Storage::putFile('public/shops/', $imageFile);
-        // Log::info("ddd");
-
         if (!is_null('$imageFile')) {
-            $fileName = uniqid(rand() . '_');
-            $extension = $imageFile->extension();
-            $fileNameToStore = $fileName . '.' . $extension;
+            $fileNameToStore = ImageService::upload($imageFile, 'shops');
         }
-
-        // Storage::putFileAs('public/' . $folderName . '/', $file, $fileNameToStore);
-
 
         $shop = Shop::findOrFail($id);
         $shop->name = $request->shop;

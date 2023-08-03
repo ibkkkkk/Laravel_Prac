@@ -1,5 +1,5 @@
-@if (empty($shop->filename))
+@if (empty($filename))
     <img src="{{ asset('images/noimage.png') }}">
 @else
-    <img src="{{ asset('storage/shops/' . $shop->filename) }}">
+    <img class="w-1/4 h-full" src="{{ asset('storage/products/' . $filename) }}">
 @endif

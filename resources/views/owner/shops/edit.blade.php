@@ -60,6 +60,10 @@
 
                         </div>
                     </form>
+                    @php
+                        $d = uniqid();
+                    @endphp
+                    <p>{{ $d }}</p>
                 </div>
             </div>
 </x-app-layout>
