@@ -25,7 +25,7 @@
                                             <span
                                                 class="border p-2 rounded-md  bg-red-400 text-black font-bold: 600">停止中</span>
                                         @endif
-                                        <div class="mt-2 ml-3">
+                                        <div class="mt-2 ml-4">
                                             {{ $shop->name }}
                                         </div>
                                     </div>
