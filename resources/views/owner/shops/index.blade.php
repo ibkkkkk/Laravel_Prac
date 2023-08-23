@@ -29,7 +29,8 @@
                                             {{ $shop->name }}
                                         </div>
                                     </div>
-                                    <x-thumbnail />
+                                    <x-thumbnail :filename="$shop->filename" type="shops" />
+
                                 </div>
                             </a>
                         </div>

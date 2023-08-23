@@ -13,20 +13,21 @@
                 </div>
             @endif
             <div>
-                <button onclick="location.href='{{ route('owner.images.create') }}'"
+                <button onclick="location.href='{{ route('owner.products.create') }}'"
                     class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4 ">新規登録</button>
-                {{ $images->links() }}
+                {{-- {{ $products->links() }} --}}
             </div>
             <div class="flex flex-wrap w-full">
-                @foreach ($images as $image)
-                    <div class="w-1/4 h-1/2">
-                        <a class="" href="{{ route('owner.images.edit', ['image' => $image->id]) }}">
-
-                            <div class="object-cover">
-                                <x-thumbnail :filename="$image->filename" type='products' />
-                            </div>
-                        </a>
-                    </div>
+                @foreach ($ownerInfo as $owner)
+                    @foreach ($owner->shop->product as $product)
+                        <div class="w-1/4 h-1/2">
+                            <a class="" href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
+                                <div class="object-cover">
+                                    <x-thumbnail :filename="$product->imageFirst->filename" type='products' />
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
                 @endforeach
             </div>
         </div>

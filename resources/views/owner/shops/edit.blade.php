@@ -31,7 +31,7 @@
                                 </div>
                             </div>
                             <div class="w-12">
-                                <x-thumbnail />
+                                <x-thumbnail :filename="$shop->filename" type="shops" />
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
