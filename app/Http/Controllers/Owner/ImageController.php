@@ -99,7 +99,6 @@ class ImageController extends Controller
         dd("dfdfd");
     }
 
-
     public function destroy($id)
     {
 
