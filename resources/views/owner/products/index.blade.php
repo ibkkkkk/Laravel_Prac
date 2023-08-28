@@ -23,7 +23,8 @@
                         <div class="w-1/4 h-1/2">
                             <a class="" href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
                                 <div class="object-cover">
-                                    <x-thumbnail :filename="$product->imageFirst->filename" type='products' />
+                                    <x-thumbnail filename="{{ $product->imageFirst->filename ?? '' }}"
+                                        type='products' />
                                 </div>
                             </a>
                         </div>
