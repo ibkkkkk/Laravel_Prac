@@ -34,7 +34,6 @@ class ProductController extends Controller
         });
     }
 
-
     public function index()
     {
         $ownerInfo = Owner::with('shop.product.imageFirst')
@@ -68,7 +67,6 @@ class ProductController extends Controller
 
         return view('owner.products.create', compact('shops', 'images', 'categories'));
     }
-
 
     public function store(ProductRequest $request)
     {
@@ -107,12 +105,10 @@ class ProductController extends Controller
             ]);
     }
 
-
     // public function show($id)
     // {
     //     //
     // }
-
 
     public function edit($id)
     {
@@ -130,13 +126,6 @@ class ProductController extends Controller
         );
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(ProductRequest $request, $id)
     {
         $request->validate([
@@ -199,12 +188,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Product::findOrFail($id)->delete();

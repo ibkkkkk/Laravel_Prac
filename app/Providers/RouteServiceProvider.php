@@ -42,38 +42,6 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
-
-    // public function boot()
-    // {
-    //     $this->configureRateLimiting();
-
-    //     $this->routes(function () {
-    //         Route::prefix('api')
-    //             ->middleware('api')
-    //             ->namespace($this->namespace)
-    //             ->group(base_path('routes/api.php'));
-
-    //         Route::prefix('admin')
-    //             ->as('admin.')
-    //             ->middleware('web')
-    //             ->namespace($this->namespace)
-    //             ->group(base_path('routes/admin.php'));
-
-    //         Route::prefix('owner')
-    //             ->as('owner.')
-    //             ->middleware('web')
-    //             ->namespace($this->namespace)
-    //             ->group(base_path('routes/owner.php'));
-
-    //         Route::prefix('/')
-    //             ->as('user.')
-    //             ->middleware('web')
-    //             ->namespace($this->namespace)
-    //             ->group(base_path('routes/web.php'));
-    //     });
-    // }
-
-
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {

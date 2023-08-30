@@ -14,7 +14,7 @@
             @endif
             <div>
                 <button onclick="location.href='{{ route('owner.images.create') }}'"
-                    class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4 ">新規登録</button>
+                    class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4 mt-4">新規登録</button>
                 {{ $images->links() }}
             </div>
             <div class="flex flex-wrap w-full">
