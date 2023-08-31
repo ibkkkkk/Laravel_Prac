@@ -30,9 +30,9 @@
                                     </textarea>
                                 </div>
                             </div>
-                            <div class="w-12">
+                            {{-- <div class="w-12">
                                 <x-thumbnail :filename="$shop->filename" type="shops" />
-                            </div>
+                            </div> --}}
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="image" class="leading-7 text-sm text-gray-600">image</label>
@@ -53,17 +53,13 @@
                             </div>
                             <div class="p-2 w-full flex justify-center mt-4">
                                 <button type='button' onclick="location.href='{{ route('owner.shops.index') }}'"
-                                    class="mx-auto bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">戻る</button>
+                                    class="mx-auto bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-400 rounded text-lg">戻る</button>
                                 <button type="submit"
                                     class="mx-auto bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">登録</button>
                             </div>
 
                         </div>
                     </form>
-                    @php
-                        $d = uniqid();
-                    @endphp
-                    <p>{{ $d }}</p>
                 </div>
             </div>
 </x-app-layout>

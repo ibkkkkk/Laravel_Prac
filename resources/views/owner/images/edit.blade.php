@@ -21,7 +21,7 @@
                         </div>
                         <div class="p-2 w-full flex justify-center mt-4">
                             <button type='button' onclick="location.href='{{ route('owner.images.index') }}'"
-                                class="mx-auto bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">戻る</button>
+                                class="mx-auto bg-gray-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-400 rounded text-lg">戻る</button>
                             <button type="submit"
                                 class="mx-auto bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">更新</button>
                         </div>
@@ -32,7 +32,7 @@
                     action="{{ route('owner.images.destroy', ['image' => $image->id]) }}">
                     @csrf
                     @method('delete')
-                    <div class="p-2 w-full flex justify-around mt-32">
+                    <div class="p-2 w-full flex justify-around mt-12">
                         <a href="#" data-id="{{ $image->id }}" onclick="deletePost(this)"
                             class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded ">削除する</a>
                     </div>
