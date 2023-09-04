@@ -17,21 +17,27 @@
                     class="bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4 mt-4">新規登録</button>
                 {{-- {{ $products->links() }} --}}
             </div>
-            <div class="flex flex-wrap w-full">
-                @foreach ($ownerInfo as $owner)
-                    @foreach ($owner->shop->product as $product)
-                        <div class="w-1/4 h-1/2">
-                            <a class="" href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
-                                <div class="object-cover">
-                                    <x-thumbnail filename="{{ $product->imageFirst->filename ?? '' }}"
-                                        type='products' />
-                                </div>
-                            </a>
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 bg-white border-b border-gray-200">
+                        <div class="flex flex-wrap">
+                            @foreach ($ownerInfo as $owner)
+                                @foreach ($owner->shop->product as $product)
+                                    <div class="w-1/4 p-2 md:p-4">
+                                        <a href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
+                                            <div class="border rounded-md p-2 md:p-4">
+                                                <img src="{{ asset('images/sample4.jpg') }}">
+                                                <h2 class="text-gray-700 text-md font-medium">
+                                                    {{ $product->name }}</h2>
+                                                {{-- <x-thumbnail filename="{{ $product->imageFirst->filename ?? '' }}" --}}
+                                                {{-- type='products' /> --}}
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            @endforeach
                         </div>
-                    @endforeach
-                @endforeach
-            </div>
-        </div>
-    </div>
+                    </div>
+                </div>
 
 </x-app-layout>
