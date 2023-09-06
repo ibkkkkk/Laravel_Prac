@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\User;
 
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Stock;
@@ -13,6 +14,19 @@ class ItemController extends Controller
     public function __construct()
     {
         $this->middleware('auth:users');
+
+        $this->middleware(function ($request, $next) {
+            $id = $request->route()->parameter('item');
+            if (!is_null($id)) {
+                $itemId = Product::availableItems()
+                    ->where('products.id', $id)
+                    ->exists();
+                if (!$itemId) {
+                    abort(404);
+                }
+            }
+            return $next($request);
+        });
     }
 
     public function index()
