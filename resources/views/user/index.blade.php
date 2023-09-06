@@ -21,6 +21,9 @@
                                                 {{-- {{ $product->category }}</h3> --}}
                                                 <h2 class="text-gray-900 title-font text-lg font-medium">
                                                     {{ $product->name }}</h2>
+                                                <h2 class="text-sm title-font text-gray-500 tracking-widest">
+                                                    {{ $product->category }}
+                                                </h2>
                                                 <p class="mt-1">{{ number_format($product->price) }}<span
                                                         class="text-sm text-gray-700">円(税込)</span></p>
                                         </div>

@@ -18,13 +18,15 @@ return new class extends Migration
 
         Schema::create('secondary_categories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('primary_category_id')->constrained();
+            $table->foreignId('primary_category_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->string('name');
             $table->integer('sort_order');
             $table->timestamps();
         });
     }
-
 
     public function down()
     {
