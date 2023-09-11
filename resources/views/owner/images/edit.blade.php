@@ -7,7 +7,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <form method="post" action="{{ route('owner.images.update', ['image' => $image->id]) }}">
                         @csrf
@@ -32,7 +32,7 @@
                     action="{{ route('owner.images.destroy', ['image' => $image->id]) }}">
                     @csrf
                     @method('delete')
-                    <div class="p-2 w-full flex justify-around mt-12">
+                    <div class="p-2 w-full flex justify-around mt-8">
                         <a href="#" data-id="{{ $image->id }}" onclick="deletePost(this)"
                             class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-500 rounded ">削除する</a>
                     </div>
