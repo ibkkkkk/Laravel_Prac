@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            商品管理
         </h2>
     </x-slot>
 
@@ -16,23 +16,22 @@
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="name" class="leading-7 text-sm text-gray-600">商品名</label>
-                                    <input type="text" id="name" name="name" value="{{ old('name') }}"
-                                        required
+                                    <input type="text" id="name" name="name" value="{{ old('name') }}" required
                                         class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="information" class="leading-7 text-sm text-gray-600">商品情報</label>
-                                    <textarea id="information" name="information" required rows="8" value="{{ old('infomation') }}"
+                                    <textarea id="information" name="information" required rows="8"
+                                        value="{{ old('infomation') }}"
                                         class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"></textarea>
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative">
                                     <label for="price" class="leading-7 text-sm text-gray-600">価格</label>
-                                    <input type="number" id="price" name="price" value="{{ old('price') }}"
-                                        required
+                                    <input type="number" id="price" name="price" value="{{ old('price') }}" required
                                         class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-green-500 focus:bg-white focus:ring-2 focus:ring-green-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                 </div>
                             </div>
@@ -59,9 +58,9 @@
                                     <select name="shop_id" id="shop_id"
                                         class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                         @foreach ($shops as $shop)
-                                            <option value="{{ $shop->id }}">
-                                                {{ $shop->name }}
-                                            </option>
+                                        <option value="{{ $shop->id }}">
+                                            {{ $shop->name }}
+                                        </option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -72,22 +71,23 @@
                                     <select name="category" id="category"
                                         class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                                         @foreach ($categories as $category)
-                                            <optgroup label="{{ $category->name }}">
-                                                @foreach ($category->secondary as $secondary)
-                                                    <option value="{{ $secondary->id }}">
-                                                        {{ $secondary->name }}
-                                                    </option>
-                                                @endforeach
-                                            </optgroup>
+                                        <optgroup label="{{ $category->name }}">
+                                            @foreach ($category->secondary as $secondary)
+                                            <option value="{{ $secondary->id }}">
+                                                {{ $secondary->name }}
+                                            </option>
+                                            @endforeach
+                                        </optgroup>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
-                                    <div><input type="radio" name="is_selling" value="1" class="mr-2"
-                                            checked>販売中</div>
-                                    <div><input type="radio" name="is_selling" value="0" class="mr-2">停止中</div>
+                                    <div><input type="radio" name="is_selling" value="1" class="mr-2" checked><span
+                                            class="text-gray-600">販売中</span></div>
+                                    <div><input type="radio" name="is_selling" value="0" class="mr-2"><span
+                                            class="text-gray-600">停止中</span></div>
                                 </div>
                             </div>
 
