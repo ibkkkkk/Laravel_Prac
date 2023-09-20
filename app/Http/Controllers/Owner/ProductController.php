@@ -39,17 +39,21 @@ class ProductController extends Controller
         $ownerInfo = Owner::with('shop.product.imageFirst')
             ->where('id', Auth::id())->get();
 
+        if ($ownerInfo) {
+            return view(
+                'owner.products.index',
+                compact('ownerInfo')
+            );
+        } else {
+            return;
+        };
+
         // foreach ($ownerInfo as $owner) {
         //     foreach ($owner->shop->product as $product) {
         //         dd($product->imageFirst->filename);
         //     };
         //     // dd($owner->shop->product);
         // }
-
-        return view(
-            'owner.products.index',
-            compact('ownerInfo')
-        );
     }
 
     public function create()
@@ -164,7 +168,7 @@ class ProductController extends Controller
                     if ($request->type === \Constant::PRODUCT_LIST['add']) {
                         $newQuantity = $request->quantity;
                     }
-                    if ($request->type === '2') {
+                    if ($request->type === \Constant::PRODUCT_LIST['reduce']) {
                         $newQuantity = $request->quantity * -1;
                     }
 

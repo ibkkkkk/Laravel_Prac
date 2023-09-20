@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('owner_id')->constrained();
             $table->string('name')->nullable(true);
             $table->text('information');
-            $table->string('filename')->nullable();
+            $table->string('filename')->default('images/sample2.jpg');
             $table->boolean('is_selling');
             $table->timestamps();
         });

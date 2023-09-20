@@ -13,7 +13,7 @@
             </div>
             @endif
             @foreach ($shops as $shop)
-            <div class="w-1/4">
+            <div class="w-1/2">
                 <a href="{{ route('owner.shops.edit', ['shop' => $shop->id])}}">
                     <div class="border rounded-md">
                         <div class="flex">

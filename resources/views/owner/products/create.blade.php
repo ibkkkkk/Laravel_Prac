@@ -82,6 +82,9 @@
                                     </select>
                                 </div>
                             </div>
+
+                            <x-select-image name="image1" />
+
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
                                     <div><input type="radio" name="is_selling" value="1" class="mr-2" checked><span

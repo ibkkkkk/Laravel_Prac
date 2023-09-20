@@ -50,7 +50,7 @@
                                     <input type="hidden" id="current_quantity" name="current_quantity"
                                         value="{{ $quantity }}">
                                     <div class="w-full bg-gray-100 bg-opacity-80 rounded">
-                                        <span class="text-gray-600">{{$quantity}}</span>
+                                        {{ $quantity }}
                                     </div>
                                 </div>
                             </div>
