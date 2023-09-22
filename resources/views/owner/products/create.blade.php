@@ -83,14 +83,17 @@
                                 </div>
                             </div>
 
-                            <x-select-image name="image1" />
+                            <x-select-image name="image1" :images="$images" />
 
                             <div class="p-2 w-1/2 mx-auto">
                                 <div class="relative flex justify-around">
                                     <div><input type="radio" name="is_selling" value="1" class="mr-2" checked><span
-                                            class="text-gray-600">販売中</span></div>
-                                    <div><input type="radio" name="is_selling" value="0" class="mr-2"><span
-                                            class="text-gray-600">停止中</span></div>
+                                            class="text-gray-600">販売中</span>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="is_selling" value="0" class="mr-2"><span
+                                            class="text-gray-600">停止中</span>
+                                    </div>
                                 </div>
                             </div>
 
@@ -105,4 +108,23 @@
                     </form>
                 </div>
             </div>
+            <script>
+                'use strict'
+                const images = document.querySelectorAll('.image')
+
+                images.forEach(image => {
+                    image.addEventListener('click', function (e) {
+                        const imageName = e.target.dataset.id.substr(0, 6)
+                        const imageId = e.target.dataset.id.replace(imageName + '_', '')
+                        const imageFile = e.target.dataset.file
+                        const imagePath = e.target.dataset.path
+                        const modal = e.target.dataset.modal
+                        document.getElementById(imageName + '_thumbnail').src = imagePath + '/' + imageFile
+                        document.getElementById(imageName + '_hidden').value = imageId
+                        MicroModal.close(modal);
+                    },)
+                })
+
+            </script>
+
 </x-app-layout>

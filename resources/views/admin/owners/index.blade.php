@@ -14,6 +14,10 @@
                 </div>
                 @endif
                 <div class="p-6 text-gray-900">
+                    <div class="flex mb-4">
+                        <button onclick="location.href='{{ route('admin.owners.create')}}'"
+                            class="text-white bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-lg">新規登録</button>
+                    </div>
                     @foreach ($owners as $owner)
                     <div class="container px-5 py-24 mx-auto border border-white">
                         <div class="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
@@ -47,11 +51,6 @@
 
                     </div>
                     @endforeach
-                    <div class="flex space-x-20">
-                        <button onclick="location.href='{{ route('admin.owners.create') }}'"
-                            class="mt-4 bg-green-500 border-0 py-2 px-4 focus:outline-none hover:bg-green-600 rounded text-md mb-4 ">新規登録</button>
-                        {{ $owners->links() }}
-                    </div>
 
 
                     {{-- eloquent
