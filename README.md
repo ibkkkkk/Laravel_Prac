@@ -9,7 +9,7 @@ Laravel学習のために作成したECサイトです。
 決済機能
 メール機能など
 
-** サンプル画像
+## サンプル画像
 
 public/image配下に各サンプル画像を保存してあります。
 php artisan storage:link でstorageディレクトリとのリンクをお願いします。
