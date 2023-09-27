@@ -17,12 +17,13 @@
                                 <div class="swiper-wrapper">
                                     <!-- Slides -->
                                     <div class="swiper-slide">
-                                        <img src="{{asset('storage/products/69540055_650a459fdb452.jpg')}}">
+                                        @if ($product->imageFirst->filename !== null)
+                                        <img src="{{ asset('storage/products/' . $product->imageFirst->filename )}}">
+                                        @else
+                                        <img src="">
+                                        @endif
+
                                     </div>
-                                    <div class="swiper-slide">Slide 2</div>
-                                    <div class="swiper-slide">Slide 3</div>
-                                    <!-- <div class="swiper-slide">Slide 2</div>
-                                    <div class="swiper-slide">Slide 3</div> -->
                                 </div>
                                 <!-- If we need pagination -->
                                 <div class="swiper-pagination"></div>

@@ -27,13 +27,13 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             OwnerSeeder::class,
             ShopSeeder::class,
-            ImageSeeder::class,
+            // ImageSeeder::class,
             CategorySeeder::class,
             // ProductSeeder::class,
             // StockSeeder::class,
             UserSeeder::class
         ]);
-        Product::factory(100)->create();
-        Stock::factory(100)->create();
+        // Product::factory(100)->create();
+        // Stock::factory(100)->create();
     }
 }

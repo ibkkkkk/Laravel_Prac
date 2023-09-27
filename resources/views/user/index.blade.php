@@ -85,8 +85,11 @@
                         <div class="w-1/4 p-2 md:p-4">
                             <a href="{{ route('user.items.show', ['item' => $product->id]) }}">
                                 <div class="border rounded-md p-2 md:p-4">
-                                    <img src="{{ asset('images/sample4.jpg') }}">
-
+                                    @if($product->deleted_at !== null)
+                                    <img src="{{asset('images/cart.jpg')}}">
+                                    @else
+                                    <x-thumbnail filename="{{$product->filename ?? ''}}" type="products" />
+                                    @endif
                                     <div class="mt-4">
                                         <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">
                                             {{ $product->category }}</h3>

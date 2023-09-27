@@ -25,6 +25,7 @@ Route::get('/', function () {
 Route::middleware('auth:users')->group(function () {
     Route::get('/', [ItemController::class, 'index'])->name('items.index');
     Route::get('show/{item}', [ItemController::class, 'show'])->name('items.show');
+    Route::get('/list', [ItemsController::class, 'list'])->name('items.list');
 });
 
 Route::prefix('cart')->middleware('auth:users')->group(function () {

@@ -23,8 +23,16 @@
                     <div class="w-1/4 p-2 md:p-4">
                         <a href="{{ route('owner.images.edit', ['image' => $image->id ])}}">
                             <div class="border rounded-md p-2 md:p-4">
+                                @if ($image->filename)
                                 <x-thumbnail :filename="$image->filename" type="products" />
-                                <div class="text-gray-700">{{ $image->title }}</div>
+                                @else
+                                <img src="{{asset('images/cart.jpg')}}">
+                                @endif
+                                <h2 class="text-gray-700 flex justify-center">
+                                    @if ($image->title)
+                                    {{ $image->title }}
+                                    @else no title
+                                    @endif</h2>
                             </div>
                         </a>
                     </div>

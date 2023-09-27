@@ -26,11 +26,10 @@
                             <div class="w-1/4 p-2 md:p-4">
                                 <a href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
                                     <div class="border rounded-md p-2 md:p-4">
-                                        <img src="{{ asset('images/sample4.jpg') }}">
-                                        <h2 class="text-gray-700 text-md font-medium">
+                                        <h2 class="text-gray-700 text-md font-medium flex justify-center">
                                             {{ $product->name }}</h2>
-                                        {{-- <x-thumbnail filename="{{ $product->imageFirst->filename ?? '' }}" --}}
-                                            {{-- type='products' /> --}}
+                                        <x-thumbnail filename="{{ $product->imageFirst->filename ?? '' }}"
+                                            type='products' />
                                     </div>
                                 </a>
                             </div>
@@ -39,5 +38,4 @@
                         </div>
                     </div>
                 </div>
-
 </x-app-layout>

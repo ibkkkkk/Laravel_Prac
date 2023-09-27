@@ -45,6 +45,23 @@ class ItemController extends Controller
         return view('user.index', compact('products', 'categories'));
     }
 
+    // 追加予定
+
+    // public function list(Request $request)
+    // {
+    //     // dd($request);
+    //     // phpinfo();
+    //     $categories = PrimaryCategory::with('secondary')->get();
+
+    //     $products = Product::availableItems()
+    //         ->selectCategory($request->category ?? '0')
+    //         ->searchKeyword($request->keyword)
+    //         ->sortOrder($request->sort)
+    //         ->paginate($request->pagination ?? '20');
+
+    //     return view('user.list', compact('products', 'categories'));
+    // }
+
     public function show($id)
     {
         $product = Product::findOrFail($id);

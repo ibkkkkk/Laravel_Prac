@@ -158,10 +158,6 @@ class ProductController extends Controller
                     $product->sort_order = $request->sort_order;
                     $product->shop_id = $request->shop_id;
                     $product->secondary_category_id = $request->category;
-                    $product->image1 = $request->image1;
-                    $product->image2 = $request->image2;
-                    $product->image3 = $request->image3;
-                    $product->image4 = $request->image4;
                     $product->is_selling = $request->is_selling;
                     $product->save();
 
